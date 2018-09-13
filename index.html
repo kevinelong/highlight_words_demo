@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Highlighter App</title>
+
+    <script src="models/Highlight.js"></script>
+    <script src="models/Letter.js"></script>
+    <script src="views/HTMLOutput.js"></script>
+    <script src="HighlighterApp.js"></script>
+
+    <script>
+
+        const selectorForEmptyDiv = "#my-div";
+
+        const string = "You will deliver new technology";
+
+        const highlights = [
+            {
+                startOffset : 4,
+                endOffset : 31,
+                color : "#d9f593",
+                priority : 1
+            },
+            {
+                startOffset : 17,
+                endOffset : 31,
+                color : "#e8e8e8",
+                priority : 0
+            }
+        ];
+
+        function myRenderHighlightsFunction(selectorForEmptyDiv, string, highlights) {
+            let app = new HighlighterApp();
+            app.highlight(highlights, selectorForEmptyDiv, string);
+        }
+
+        document.addEventListener("DOMContentLoaded",function(){
+            myRenderHighlightsFunction(selectorForEmptyDiv, string, highlights);
+        });
+
+    </script>
+
+
+    <style>
+        body{
+            font-size: 1.5em;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+<div id="my-div"></div>
+
+
+</body>
+</html>
